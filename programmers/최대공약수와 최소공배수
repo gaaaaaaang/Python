@@ -1,0 +1,33 @@
+
+https://school.programmers.co.kr/learn/courses/30/lessons/12940
+
+
+import math
+
+def solution(n, m):
+    answer = []
+    min = math.gcd(n,m)
+
+    def lcm(a,b):
+        return (a*b)//math.gcd(n,m)
+    max = lcm(n,m)
+
+    answer.append(min)
+    answer.append(max)
+    return answer
+    
+    
+#다른 사람 코드
+
+def gcdlcm(a, b):
+    c, d = max(a, b), min(a, b)
+    t = 1
+    while t > 0:
+        t = c % d
+        c, d = d, t
+    answer = [c, int(a*b/c)]
+
+    return answer
+
+# 아래는 테스트로 출력해 보기 위한 코드입니다.
+print(gcdlcm(3,12))
